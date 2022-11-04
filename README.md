@@ -30,7 +30,7 @@ To enable the authentication method for passwordless phone sign-in, complete the
     - For **Authentication mode** - choose **Any** 
 5. To apply the new policy, click **Save**.
 
-    ![Image1](./readmefiles/image1.png)
+    ![Image1](./readmefiles/Image1.png)
 
 6.	Under **Configure** Tab configure the following
     1. Number matching enabled for Group
@@ -38,7 +38,7 @@ To enable the authentication method for passwordless phone sign-in, complete the
     1. Show geographic location disabled
     1. To apply the new policy, click **Save.**
 
-        ![Image2](/readmefiles/image22.png)
+        ![Image2](/readmefiles/Image22.png)
 
 _**Step 2: Configure Temporary Access Pass Settings**_
 
