@@ -182,7 +182,7 @@ _**Step 9: Validate Scenario with Sample Application**_
     - Since our Test user is in Switzerland and we already have the location information based on the authentication context claim in the token from earlier step 4., the Delete operation will not be allowed. 
     - The following message will be displayed by the application
 
-        ![Image14](/ReadmeFiles/Image1414.png)
+        ![Image14](./readmefiles/Image1414.png)
 
 ## Contributors
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
