@@ -1,5 +1,8 @@
+
 # Conditional Access - Location based Data Protection in a Web app
-The purpose of this section is to highlight a sample demonstration of the scenario. There may be other configurations/deployment scenarios. The configuration below is simply one illustration.
+The purpose of this section is to highlight a sample demonstration of the scenario. There may be other configurations/deployment scenarios. The configuration below is simply one illustration. 
+
+This repository has been created to document the sample demonstration deployment instructions for the scenario described in article [Conditional Access – Location Based Data Protection AuthN and AuthZ for Compliance](https://learn.microsoft.com/en-us/azure/architecture/)
 
 ## Pre-requisites
 
@@ -27,7 +30,7 @@ To enable the authentication method for passwordless phone sign-in, complete the
     - For **Authentication mode** - choose **Any** 
 5. To apply the new policy, click **Save**.
 
-    ![Image1](./ReadmeFiles/image1.png)
+    ![Image1](/readmefiles/image1.png)
 
 6.	Under **Configure** Tab configure the following
     1. Number matching enabled for Group
@@ -35,7 +38,7 @@ To enable the authentication method for passwordless phone sign-in, complete the
     1. Show geographic location disabled
     1. To apply the new policy, click **Save.**
 
-        ![Image2](./ReadmeFiles/image22.png)
+        ![Image2](/readmefiles/image22.png)
 
 _**Step 2: Configure Temporary Access Pass Settings**_
 
@@ -44,7 +47,7 @@ Assuming users will not have passwords the only way to onboard to Passwordless P
 Please follow the step at link below to Configure a Temporary Access Pass in Azure AD as shown in screenshot:
 > [Enable the temporary access pass policy](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-temporary-access-pass#enable-the-temporary-access-pass-policy)
 
-![Image3](./ReadmeFiles/image3.png)
+![Image3](/readmefiles/image3.png)
 
 _**Step 3: Onboard the test user to Temporary Access Pass**_
 
@@ -65,7 +68,7 @@ _**Step 4: Configure GPS Named Locations in Azure AD**_
 5. Choose **Select location by GPS coordinates** and choose the country E.g. *Switzerland* from the list by clicking the checkbox.
 6. Choose **Save**
 
-    ![Image4](./ReadmeFiles/image4.png)
+    ![Image4](/readmefiles/image4.png)
 
 7. Repeat the above steps 3. – 6. and create a few additional GPS country locations E.g. GPS UK, GPS Spain and GPS US
 
@@ -77,7 +80,7 @@ _**Step 5: Configure Authentication Context Claims in Azure AD**_
 2. Authentication contexts are managed in the **Azure portal under Azure Active Directory > Security > Conditional Access > Authentication context**
 3. Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Provide a Display name, Description, Publish to apps must be selected and the ID is a read-only value of the next available ID which is c1-c25 (At the time of writing the number of authentication context definitions was limited to 25)
 
-    ![Image5](./ReadmeFiles/image55.png)
+    ![Image5](/readmefiles/image55.png)
 
 4. Repeat step 3. and create multiple authentication contexts that will be mapped to respective GPS locations
 
@@ -95,11 +98,11 @@ Authentication contexts are managed in the Azure portal under **Azure Active Dir
 
 4.	Under **Select the Authentication Contexts this policy will apply to** Select the appropriate Authentication context we created earlier E.g. C1toCHMapping
 
-    ![Image6](./ReadmeFiles/image66.png)
+    ![Image6](/readmefiles/image66.png)
 
 5.	Under **Conditions** configure the location condition **Include** All locations and **Exclude** the named GPS location **E.g. GPS Switzerland**
 
-    ![Image7](./ReadmeFiles/image7.png)
+    ![Image7](/readmefiles/image7.png)
 
 6.	Under **Grant** select **Block access**
 
@@ -138,7 +141,7 @@ _**Step 8: Configure Application to use Authentication Context Claims mapped Loc
 
     Once complete the mappings should show up as below:
 
-    ![Image8](./ReadmeFiles/image8.png)
+    ![Image8](/readmefiles/image8.png)
 
 4. **Sign-out** from TodoListClient application
 
@@ -148,22 +151,22 @@ _**Step 9: Validate Scenario with Sample Application**_
 
 1.	Browse to https://localhost:44321 and sign-in with the test user account in your Tenant. Sign-in using Passwordless Phone-Sign-in using the Microsoft Authenticator App. using Number match + iOS (FaceID/TouchID)
 
-    ![Image8](./ReadmeFiles/image9.png)
+    ![Image9](/readmefiles/image9.png)
 
 2. Once logged on to the TodoListClient application Click TodoList followed by Create New (To create a new item in the list) 
 
-    ![Image8](./ReadmeFiles/image10.png)
+    ![Image10](/readmefiles/image10.png)
 
 3. Fill in the ToDo item form and click Create
 
-    ![Image8](./ReadmeFiles/image11.png)
+    ![Image11](/readmefiles/image11.png)
 
 4. Since this operation requires the Conditional access Authentication context claim challenge c1 the corresponding CA rule will be executed by Azure AD 
 
     -  The user will be shown the location requirement window with number match screen on the Browser
     - In parallel the user will be notified on the Microsoft Authenticator
 
-        ![Image8](./ReadmeFiles/image12.png)
+        ![Image12](/readmefiles/image12.png)
 
     - The user must enter the matching number as well as perform iOS (FaceID/TouchID) after which the location information (Country code) is sent by Microsoft Authenticator to Azure AD.
     - Azure AD issues a new token with appropriate Authentication Context claim c1
@@ -171,7 +174,7 @@ _**Step 9: Validate Scenario with Sample Application**_
 
 5.	The final validation step is to attempt to delete an item from the TodoList. Click TodoList and choose an item to delete. This will load the Delete ToDo page with item displayed
 
-    ![Image8](./ReadmeFiles/image13.png)
+    ![Image13](/readmefiles/image13.png)
 
 
 6. Click on the  Delete button to confirm deletion.
@@ -179,17 +182,12 @@ _**Step 9: Validate Scenario with Sample Application**_
     - Since our Test user is in Switzerland and we already have the location information based on the authentication context claim in the token from earlier step 4., the Delete operation will not be allowed. 
     - The following message will be displayed by the application
 
-        ![Image8](./ReadmeFiles/image1414.png)
+        ![Image14](/readmefiles/image1414.png)
+
 ## Contributors
-
-> (Expected, but this section is optional if all the contributors would prefer to not be mentioned.)
-
-> Start with the explanation text (same for every section), in italics. This makes it clear that Microsoft takes responsibility for the article (not the one contributor). Then include the "Principal authors" list and the "Other contributors" list, if there are additional contributors (all in plain text, not italics or bold). Link each contributor's name to the person's LinkedIn profile. After the name, place a pipe symbol ("|") with spaces, and then enter the person's title. We don't include the person's company, MVP status, or links to additional profiles (to minimize edits/updates). Implement this format:
-
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors: > Only the primary authors. Listed alphabetically by last name. Use this format: Fname Lname. If the article gets rewritten, keep the original authors and add in the new one(s).
-
+Principal authors:
  - [Kunal Kodkani](https://ch.linkedin.com/in/kunal-kodkani-6847661) | "Senior Program Manager - Cloud for Industry (FSI)"
  - [Caleb Baker](http://linkedin.com/ProfileURL) | "Principal Product Manager - Identity Engineering"
  - [Paresh Nhathalal](http://linkedin.com/ProfileURL) | "Senior Customer Engineering Manager - Identity Engineering"
