@@ -188,9 +188,9 @@ _**Step 9: Validate Scenario with Sample Application**_
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal authors:
- - [Kunal Kodkani](https://ch.linkedin.com/in/kunal-kodkani-6847661) | "Senior Program Manager - Cloud for Industry (FSI)"
- - [Caleb Baker](http://linkedin.com/ProfileURL) | "Principal Product Manager - Identity Engineering"
- - [Paresh Nhathalal](http://linkedin.com/ProfileURL) | "Senior Customer Engineering Manager - Identity Engineering"
+ - [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Senior Program Manager - Cloud for Industry (FSI)
+ - [Caleb Baker](https://www.linkedin.com/in/baker-caleb) | Principal Product Manager - Identity Engineering
+ - [Paresh Nhathalal](https://www.linkedin.com/in/paresh-nhathalal-72613b2) | Senior Customer Engineering Manager - Identity Engineering
 
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
