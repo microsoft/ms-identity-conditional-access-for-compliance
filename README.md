@@ -8,7 +8,7 @@ This repository has been created to document the sample demonstration deployment
 
 The diagram below highlights at a high-level, the configuration steps A. and B. performed by the Administrator and Application Developer roles  respectively as well as the end-user steps 1.- 7. to demonstrate the scenario.
 
-   ![Image0](./readmefiles/image00.png)
+   ![Image0](./readmefiles/Image00.png)
 
 **A.**	Administrator configures Conditional Access policy mapping authentication context to GPS Named Location (One-time activity) E.g. C1 = GPS CH (Switzerland)
 
