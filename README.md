@@ -4,6 +4,28 @@ The purpose of this section is to highlight a sample demonstration of the scenar
 
 This repository has been created to document the sample demonstration deployment instructions for the scenario described in article [Conditional Access – Location Based Data Protection AuthN and AuthZ for Compliance](https://learn.microsoft.com/en-us/azure/architecture/)
 
+# Summary of the sample scenario:
+
+The diagram below highlights at a high-level, the configuration steps A. and B. performed by the Administrator and Application Developer roles  respectively as well as the end-user steps 1.- 7. to demonstrate the scenario.
+
+   ![Image0](./readmefiles/image00.png)
+
+**A.**	Administrator configures Conditional Access policy mapping authentication context to GPS Named Location (One-time activity) E.g. C1 = GPS CH (Switzerland)
+
+**B.**	Application Developers make their Apps Application context aware and can trigger step-up authentication requesting the required claims for actions from within their applications E.g. Action 1 requires Auth. Context claim acrs=C1
+
+**C.** End-User Steps:
+
+1.	User is already authenticated to App 1
+2.	User attempts to perform Action 1 withing App 1
+3.	Action 1 requires Authentication Context Claim C1 to successfully execute However since the current token doesn’t have a claim C1 a claims challenge is triggered
+4.	Azure AD executed policy CA policy 1 that maps to claim C1 to GPS location and requests location from the users Authenticator App.
+5.	User consents appropriately if it’s the first time and provides location information
+6.	If the location information matches CH (Switzerland) a new access token is issued by Azure AD with claim C1
+7.	Call comes back to App 1 with the new Access token and claim C1 and Action 1 is successfully executed
+
+# Deploy this Scenario
+
 ## Pre-requisites
 
 1.	Demo or Trial M365 Tenant
