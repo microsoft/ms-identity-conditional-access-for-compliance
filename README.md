@@ -81,12 +81,12 @@ Please logon as Tenant Adminstrator follow the steps in link below to create a n
 Thereafter use the Temporary Access Pass (TAP) code to onboard the user on to the Microsoft Authenticator App. To do this:
 
 1. Start the **Microsoft Autheticator App** and Add a new account by selecting **+** sign
-2. Choose **Work or school account** and in the Add work or school account dialog choose **Sign in**
+2. Choose **Work or school account** and in the "Add work or school account" dialog choose **Sign in**
 3. In the **Sign in** dialog enter the **UPN** of the Test User and select **Next**
-4. In the Enter Temporary access pass page enter the **Temporary Access pass (TAP) Code** that was generate earlier
+4. In the "Enter Temporary access pass" page enter the **Temporary Access pass (TAP) Code** that was generate earlier
 5. Choose **Continue** in the "Sign-in with your phone" dialog to perform your Device registration
 6. Select **Register** to Register your device
-7. Choose **Allow** in the Allow Notification dialog
+7. Choose **Allow** in the "Allow Notification" dialog
 8. Select **Finish** 
 
 
@@ -188,7 +188,7 @@ _**Step 9: Validate Scenario with Sample Application**_
 
     ![Image10](./readmefiles/Image10.png)
 
-3. Fill in the ToDo item form and click Create
+3. Fill in the ToDo item form and click **Create**
 
     ![Image11](./readmefiles/Image11.png)
 
@@ -201,7 +201,7 @@ _**Step 9: Validate Scenario with Sample Application**_
 
     - The user must enter the **matching number** as well as perform iOS (FaceID/TouchID) after which the **location information** (Country code) is sent by Microsoft Authenticator to Azure AD.
     - Azure AD issues a **new token** with appropriate Authentication Context claim **C1**
-    - **Call comes back to the ToDoListClient application** with the **new token** enabling the POST operation to complete thereby **successfully creating the new ToDoList item**
+    - Call comes back to the **ToDoListClient application** with the **new token** enabling the POST operation to complete thereby successfully creating the **new ToDoList item**
 
 5.	The final validation step is to attempt to delete an item from the TodoList. Click TodoList and choose an item to delete. This will load the Delete ToDo page with item displayed
 
