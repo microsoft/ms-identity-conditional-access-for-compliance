@@ -75,7 +75,7 @@ _**Step 3: Onboard the test user to Temporary Access Pass**_
 
 To Onboard the Test User to the Passwordless Phone-Sign-in solution using Temporary Access Pass.
 
-Please logon as Tenant Adminstrator follow the steps in link below to Create a new Temporary Access Pass (TAP) code for the Test User account. [Create a Temporary Access Pass](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-temporary-access-pass#create-a-temporary-access-pass)
+Please logon as Tenant Adminstrator follow the steps in link below to create a new Temporary Access Pass (TAP) code for the Test User account. [Create a Temporary Access Pass](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-temporary-access-pass#create-a-temporary-access-pass)
 
 
 Thereafter use the Temporary Access Pass (TAP) code to onboard the user on to the Microsoft Authenticator App. To do this:
@@ -96,7 +96,7 @@ _**Step 4: Configure GPS Named Locations in Azure AD**_
 2. Browse to **Azure Active Directory > Security > Conditional Access > Named locations.**
 3. Choose **New location.**
 4. Give your location a name. E.g. *GPS Switzerland*
-5. Choose **Select location by GPS coordinates** and choose the country E.g. *Switzerland* from the list by clicking the checkbox.
+5. Choose **Select location by GPS coordinates** and choose the country E.g. **Switzerland** from the list by clicking the checkbox.
 6. Choose **Save**
 
     ![Image4](./readmefiles/Image4.png)
@@ -116,14 +116,14 @@ _**Step 5: Configure Authentication Context Claims in Azure AD**_
 4. Repeat step 3. and create multiple authentication contexts that will be mapped to respective GPS locations
 
 
-_**Step 6: Configure Conditional Access Policy to map Claims to GPS Named Locations**__
+_**Step 6: Configure Conditional Access Policy to map Claims to GPS Named Locations**_
 
 This is where the Conditional Access policy maps the authentication context to the GPS location condition. 
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 Authentication contexts are managed in the Azure portal under **Azure Active Directory > Security > Conditional Access > Policies**
 
-2.	Create a new Policy with the settings, under **Users or Workload Identities** select All Users
+2.	Create a new Policy with the settings, under **Users or Workload Identities** select **All Users**
 
 3.	Administrators can select published authentication contexts in their Conditional Access policies under **Assignments > Cloud apps or actions** and selecting **Authentication context (preview)** from the **Select what this policy applies to** menu
 
@@ -161,8 +161,8 @@ Once deployed, run the application as per the instructions
 
 _**Step 8: Configure Application to use Authentication Context Claims mapped Location**_
 
->**Note:** For the purpose of the demo we are using a single <Test user account> to perform the App configuration as well as the testing in the next step. Typically this step should only be performed by the App/Data Owner or can also be automated as part of the App deployment process.
-1.	Once the Sample Application is running, on the same machine Browse to https://localhost:44321 and sign-in with the test user account in your Tenant
+>**Note:** For the purpose of the demo we are using a single Test User account to perform the Application configuration as well as the User testing in the next step. Typically the application configuration step is not exposed and should be pre-configured and automated as part of the Application deployment process.
+1.	Once the Sample Application is running, on the same machine Browse to https://localhost:44321 and sign-in with the Test User account 
 2.	Sign-in using Passwordless Phone-Sign-in instead of Username/Password
 3.	Once logged on to the TodoListClient application Click **Admin** to create mappings between an Application Operations and Conditional Access policy. 
     >Note: This Sample application is exposing two Operation, POST and DELETE
@@ -178,13 +178,13 @@ _**Step 8: Configure Application to use Authentication Context Claims mapped Loc
 
 _**Step 9: Validate Scenario with Sample Application**_
 
->**Note:** The test user location is Switzerland and we are using an iOS device for this demo
+>**Note:** The Test User location is Switzerland and we are using an iOS device for this demo
 
-1.	Browse to https://localhost:44321 and sign-in with the test user account in your Tenant. Sign-in using Passwordless Phone-Sign-in using the Microsoft Authenticator App. using Number match + iOS (FaceID/TouchID)
+1.	Browse to https://localhost:44321 and sign-in with the Test User account in your Tenant. Sign-in using Passwordless Phone-Sign-in using the Microsoft Authenticator App. using Number match + iOS (FaceID/TouchID)
 
     ![Image9](./readmefiles/Image9.png)
 
-2. Once logged on to the TodoListClient application Click TodoList followed by Create New (To create a new item in the list) 
+2. Once logged on to the TodoListClient application Click **TodoList** followed by **Create New** (To create a new item in the list) 
 
     ![Image10](./readmefiles/Image10.png)
 
@@ -192,25 +192,25 @@ _**Step 9: Validate Scenario with Sample Application**_
 
     ![Image11](./readmefiles/Image11.png)
 
-4. Since this operation requires the Conditional access Authentication context claim challenge c1 the corresponding CA rule will be executed by Azure AD 
+4. Since this operation requires the Conditional access Authentication context claim challenge C1 the corresponding CA rule will be executed by Azure AD 
 
-    -  The user will be shown the location requirement window with number match screen on the Browser
-    - In parallel the user will be notified on the Microsoft Authenticator
+    -  The user will be shown the **location** requirement window with **number match** screen on the Browser
+    - In parallel the user will be **notified on the Microsoft Authenticator**
 
         ![Image12](./readmefiles/Image12.png)
 
-    - The user must enter the matching number as well as perform iOS (FaceID/TouchID) after which the location information (Country code) is sent by Microsoft Authenticator to Azure AD.
-    - Azure AD issues a new token with appropriate Authentication Context claim C1
-    - Call comes back to the ToDoListClient application with the new token enabling the POST operation to complete thereby successfully creating the new ToDoList item
+    - The user must enter the **matching number** as well as perform iOS (FaceID/TouchID) after which the **location information** (Country code) is sent by Microsoft Authenticator to Azure AD.
+    - Azure AD issues a **new token** with appropriate Authentication Context claim **C1**
+    - **Call comes back to the ToDoListClient application** with the **new token** enabling the POST operation to complete thereby **successfully creating the new ToDoList item**
 
 5.	The final validation step is to attempt to delete an item from the TodoList. Click TodoList and choose an item to delete. This will load the Delete ToDo page with item displayed
 
     ![Image13](./readmefiles/Image13.png)
 
 
-6. Click on the  Delete button to confirm deletion.
+6. Click on the **Delete** button to confirm deletion.
 
-    - Since our Test user is in Switzerland and we already have the location information based on the authentication context claim in the token from earlier step 4., the Delete operation will not be allowed. 
+    - Since our Test User is in Switzerland and we already have the location information based on the authentication context claim in the token from earlier step 4., the **Delete operation will not be allowed.** 
     - The following message will be displayed by the application
 
         ![Image14](./readmefiles/Image1414.png)
