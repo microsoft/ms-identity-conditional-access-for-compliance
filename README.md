@@ -2,7 +2,7 @@
 # Conditional Access - Location based Data Protection in a Web app
 The purpose of this section is to highlight a sample demonstration of the scenario. There may be other configurations/deployment scenarios. The configuration below is simply one illustration. 
 
-This repository has been created to document the sample demonstration deployment instructions for the scenario described in article [Conditional Access – Location Based Data Protection AuthN and AuthZ for Compliance](https://learn.microsoft.com/en-us/azure/architecture/)
+This repository has been created to document the sample demonstration deployment instructions for the scenario described in article [Location-based access control for FSI applications - Azure Architecture Center | Microsoft Learn](https://learn.microsoft.com/azure/architecture/example-scenario/financial/location-based-access)
 
 # Summary of the sample scenario:
 
@@ -18,7 +18,7 @@ The diagram below highlights at a high-level, the configuration steps A. and B. 
 
 1.	User is already authenticated to App 1
 2.	User attempts to perform Action 1 withing App 1
-3.	Action 1 requires Authentication Context Claim C1 to successfully execute However since the current token doesn’t have a claim C1 a claims challenge is triggered
+3.	Action 1 requires Authentication Context Claim C1 (C1 = location Switzerland) to successfully execute. However since the current token doesn’t have a claim C1 a claims challenge is triggered
 4.	Azure AD executed policy CA policy 1 that maps to claim C1 to GPS location and requests location from the users Authenticator App.
 5.	User consents appropriately if it’s the first time and provides location information
 6.	If the location information matches CH (Switzerland) a new access token is issued by Azure AD with claim C1
@@ -30,8 +30,8 @@ The diagram below highlights at a high-level, the configuration steps A. and B. 
 
 1.	Demo or Trial M365 Tenant
 2.	Sample Application and Visual Studio
-3.	1 x <Tenant Administrator account> with appropriate admin rights in the M365 tenant
-4.	1 x <Test user account> in with the appropriate AAD licenses in the M365 Tenant
+3.	1 x Tenant Administrator account with appropriate admin rights in the M365 tenant
+4.	1 x Test User account in with the appropriate AAD licenses assigned in the M365 Tenant
 5.	1 x iOS/Android device supported by Microsoft Authenticator
 
 ### Scenario Setup Steps
@@ -158,8 +158,8 @@ _**Step 8: Configure Application to use Authentication Context Claims mapped Loc
 3.	Once logged on to the TodoListClient application Click **Admin** to create mappings between an Application Operations and Conditional Access policy. 
     >Note: This Sample application is exposing two Operation, POST and DELETE
 
-    -   Map the POST operation to Authentication Context C1 requiring the user to be in location Switzerland to successfully create a ToDoList item
-    - Map the DELETE operation to Authentication Context C3 requiring the user to be in Location UK to successfully delete a ToDoList item
+    -   Map the **POST** operation to Authentication Context **C1** requiring the user to be in location _**Switzerland**_ to successfully create a ToDoList item
+    - Map the **DELETE** operation to Authentication Context **C3** requiring the user to be in location _**UK**_ to successfully delete a ToDoList item
 
     Once complete the mappings should show up as below:
 
@@ -191,7 +191,7 @@ _**Step 9: Validate Scenario with Sample Application**_
         ![Image12](./readmefiles/Image12.png)
 
     - The user must enter the matching number as well as perform iOS (FaceID/TouchID) after which the location information (Country code) is sent by Microsoft Authenticator to Azure AD.
-    - Azure AD issues a new token with appropriate Authentication Context claim c1
+    - Azure AD issues a new token with appropriate Authentication Context claim C1
     - Call comes back to the ToDoListClient application with the new token enabling the POST operation to complete thereby successfully creating the new ToDoList item
 
 5.	The final validation step is to attempt to delete an item from the TodoList. Click TodoList and choose an item to delete. This will load the Delete ToDo page with item displayed
