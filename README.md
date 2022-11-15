@@ -73,13 +73,22 @@ Please follow the step at link below to Configure a Temporary Access Pass in Azu
 
 _**Step 3: Onboard the test user to Temporary Access Pass**_
 
-To Onboard the test user to the Passwordless Phone-Sign-in solution using Temporary Access Pass.
+To Onboard the Test User to the Passwordless Phone-Sign-in solution using Temporary Access Pass.
 
-Please follow the steps in link below to Create a new temporary access pass for a  user account.
+Please logon as Tenant Adminstrator follow the steps in link below to Create a new Temporary Access Pass (TAP) code for the Test User account. [Create a Temporary Access Pass](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-temporary-access-pass#create-a-temporary-access-pass)
 
-[Create a temporary access pass](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-temporary-access-pass#create-a-temporary-access-pass)
 
-Thereafter use the TAP code to onboard the user on to the Microsoft Authenticator App.
+Thereafter use the Temporary Access Pass (TAP) code to onboard the user on to the Microsoft Authenticator App. To do this:
+
+1. Start the **Microsoft Autheticator App** and Add a new account by selecting **+** sign
+2. Choose **Work or school account** and in the Add work or school account dialog choose **Sign in**
+3. In the **Sign in** dialog enter the **UPN** of the Test User and select **Next**
+4. In the Enter Temporary access pass page enter the **Temporary Access pass (TAP) Code** that was generate earlier
+5. Choose **Continue** in the "Sign-in with your phone" dialog to perform your Device registration
+6. Select **Register** to Register your device
+7. Choose **Allow** in the Allow Notification dialog
+8. Select **Finish** 
+
 
 _**Step 4: Configure GPS Named Locations in Azure AD**_
 
