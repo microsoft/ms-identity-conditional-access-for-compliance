@@ -43,7 +43,7 @@ To enable the authentication method for passwordless phone sign-in, complete the
 
 To enable the authentication method for passwordless phone sign-in, complete the following steps:
 1. Sign in to the Azure portal with an Authentication Policy Administrator account.
-2. Search for and select Azure Active Directory, then browse to **Security > Authentication methods > Policies**.
+2. Search for and select Microsoft Entra ID, then browse to **Security > Authentication methods > Policies**.
 3. Under **Microsoft Authenticator**, choose the following options:
     - **Enable** - Yes
     - **Target** - Select specific Group (Note: Test user must be member of that group)
@@ -93,7 +93,7 @@ Thereafter use the Temporary Access Pass (TAP) code to onboard the user on to th
 _**Step 4: Configure GPS Named Locations in Azure AD**_
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator. 
-2. Browse to **Azure Active Directory > Security > Conditional Access > Named locations.**
+2. Browse to **Microsoft Entra ID > Security > Conditional Access > Named locations.**
 3. Choose **New location.**
 4. Give your location a name. E.g. *GPS Switzerland*
 5. Choose **Select location by GPS coordinates** and choose the country E.g. **Switzerland** from the list by clicking the checkbox.
@@ -108,7 +108,7 @@ _**Step 4: Configure GPS Named Locations in Azure AD**_
 _**Step 5: Configure Authentication Context Claims in Azure AD**_
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-2. Authentication contexts are managed in the **Azure portal under Azure Active Directory > Security > Conditional Access > Authentication context**
+2. Authentication contexts are managed in the Azure portal under **Microsoft Entra ID > Security > Conditional Access > Authentication context**
 3. Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Provide a Display name, Description, Publish to apps must be selected and the ID is a read-only value of the next available ID which is c1-c25 (At the time of writing the number of authentication context definitions was limited to 25)
 
     ![Image5](./readmefiles/Image55.png)
@@ -121,7 +121,7 @@ _**Step 6: Configure Conditional Access Policy to map Claims to GPS Named Locati
 This is where the Conditional Access policy maps the authentication context to the GPS location condition. 
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-Authentication contexts are managed in the Azure portal under **Azure Active Directory > Security > Conditional Access > Policies**
+Authentication contexts are managed in the Azure portal under **Microsoft Entra ID > Security > Conditional Access > Policies**
 
 2.	Create a new Policy with the settings, under **Users or Workload Identities** select **All Users**
 
@@ -219,7 +219,7 @@ _**Step 9: Validate Scenario with Sample Application**_
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal authors:
- - [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Senior Program Manager - Cloud for Industry (FSI)
+ - [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Principal Program Manager - Cloud for Industry (FSI)
  - [Caleb Baker](https://www.linkedin.com/in/baker-caleb) | Principal Product Manager - Identity Engineering
  - [Paresh Nhathalal](https://www.linkedin.com/in/paresh-nhathalal-72613b2) | Senior Customer Engineering Manager - Identity Engineering
 
