@@ -31,7 +31,7 @@ The diagram below highlights at a high-level, the configuration steps A. and B. 
 1.	Demo or Trial M365 Tenant
 2.	Sample Application and Visual Studio
 3.	1 x Tenant Administrator account with appropriate admin rights in the M365 tenant
-4.	1 x Test User account in with the appropriate AAD licenses assigned in the M365 Tenant
+4.	1 x Test User account in with the appropriate Microsoft Entra ID licenses assigned in the M365 Tenant
 5.	1 x iOS/Android device supported by Microsoft Authenticator
 
 ### Scenario Setup Steps
