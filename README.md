@@ -19,9 +19,9 @@ The diagram below highlights at a high-level, the configuration steps A. and B. 
 1.	User is already authenticated to App 1
 2.	User attempts to perform Action 1 withing App 1
 3.	Action 1 requires Authentication Context Claim C1 (C1 = location Switzerland) to successfully execute. However since the current token doesn’t have a claim C1 a claims challenge is triggered
-4.	Azure AD executed policy CA policy 1 that maps to claim C1 to GPS location and requests location from the users Authenticator App.
+4.	Microsoft Entra ID executed CA policy 1 that maps to claim C1 to GPS location and requests location from the users Authenticator App.
 5.	User consents appropriately if it’s the first time and provides location information
-6.	If the location information matches CH (Switzerland) a new access token is issued by Azure AD with claim C1
+6.	If the location information matches CH (Switzerland) a new access token is issued by Microsoft Entra ID with claim C1
 7.	Call comes back to App 1 with the new Access token and claim C1 and Action 1 is successfully executed
 
 # Deploy this Scenario
@@ -66,7 +66,7 @@ _**Step 2: Configure Temporary Access Pass Settings**_
 
 Assuming users will not have passwords the only way to onboard to Passwordless Phone Sign-in is to use Temporary Access Pass (TAP). The TAP code is a one-time-code generated and communicated to the user.
 
-Please follow the step at link below to Configure a Temporary Access Pass in Azure AD as shown in screenshot:
+Please follow the step at link below to configure a Temporary Access Pass in Microsoft Entra ID as shown in screenshot:
 > [Enable the temporary access pass policy](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-temporary-access-pass#enable-the-temporary-access-pass-policy)
 
 ![Image3](./readmefiles/Image3.png)
@@ -90,7 +90,7 @@ Thereafter use the Temporary Access Pass (TAP) code to onboard the user on to th
 8. Select **Finish** 
 
 
-_**Step 4: Configure GPS Named Locations in Azure AD**_
+_**Step 4: Configure GPS Named Locations in Microsoft Entra ID**_
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator. 
 2. Browse to **Microsoft Entra ID > Security > Conditional Access > Named locations.**
@@ -105,7 +105,7 @@ _**Step 4: Configure GPS Named Locations in Azure AD**_
 
 
 
-_**Step 5: Configure Authentication Context Claims in Azure AD**_
+_**Step 5: Configure Authentication Context Claims in Microsoft Entra ID**_
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 2. Authentication contexts are managed in the Azure portal under **Microsoft Entra ID > Security > Conditional Access > Authentication context**
@@ -192,15 +192,15 @@ _**Step 9: Validate Scenario with Sample Application**_
 
     ![Image11](./readmefiles/Image11.png)
 
-4. Since this operation requires the Conditional access Authentication context claim challenge C1 the corresponding CA rule will be executed by Azure AD 
+4. Since this operation requires the Conditional access Authentication context claim challenge C1 the corresponding CA rule will be executed by Microsoft Entra ID 
 
     -  The user will be shown the **location** requirement window with **number match** screen on the Browser
     - In parallel the user will be **notified on the Microsoft Authenticator**
 
         ![Image12](./readmefiles/Image12.png)
 
-    - The user must enter the **matching number** as well as perform iOS (FaceID/TouchID) after which the **location information** (Country code) is sent by Microsoft Authenticator to Azure AD.
-    - Azure AD issues a **new token** with appropriate Authentication Context claim **C1**
+    - The user must enter the **matching number** as well as perform iOS (FaceID/TouchID) after which the **location information** (Country code) is sent by Microsoft Authenticator to Microsoft Entra ID.
+    - Microsoft Entra ID issues a **new token** with appropriate Authentication Context claim **C1**
     - Call comes back to the **ToDoListClient application** with the **new token** enabling the POST operation to complete thereby successfully creating the **new ToDoList item**
 
 5.	The final validation step is to attempt to delete an item from the TodoList. Click TodoList and choose an item to delete. This will load the Delete ToDo page with item displayed
